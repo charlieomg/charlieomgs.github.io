@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Tracker</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #mars {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: orange;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .alien {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: limegreen;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="mars">
+        <button onclick="trackAliens()">Track Aliens</button>
+    </div>
+    <div id="alien-count"></div>
+
+    <script>
+        function trackAliens() {
+            var mars = document.getElementById('mars');
+            var alienCount = Math.floor(Math.random() * 10) + 1;
+            var alienCountText = document.getElementById('alien-count');
+            alienCountText.innerText = alienCount + " aliens have been found on Mars!";
+            
+            for (var i = 0; i < alienCount; i++) {
+                var alien = document.createElement('div');
+                alien.classList.add('alien');
+                var randomX = Math.floor(Math.random() * 180) + 10; // Random x-coordinate within the Mars circle
+                var randomY = Math.floor(Math.random() * 180) + 10; // Random y-coordinate within the Mars circle
+                alien.style.left = randomX + 'px';
+                alien.style.top = randomY + 'px';
+                mars.appendChild(alien);
+            }
+        }
+    </script>
+</body>
+</html>
