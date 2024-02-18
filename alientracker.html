@@ -15,8 +15,8 @@
             margin: 0;
         }
         #mars {
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             background-color: orange;
             position: relative;
@@ -32,6 +32,10 @@
             background-color: limegreen;
             position: absolute;
         }
+        #alien-count {
+            color: white;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -45,13 +49,13 @@
             var mars = document.getElementById('mars');
             var alienCount = Math.floor(Math.random() * 10) + 1;
             var alienCountText = document.getElementById('alien-count');
-            alienCountText.innerText = alienCount + " aliens have been found on Mars!";
+            alienCountText.innerText = "Number of aliens tracked: " + alienCount;
             
             for (var i = 0; i < alienCount; i++) {
                 var alien = document.createElement('div');
                 alien.classList.add('alien');
-                var randomX = Math.floor(Math.random() * 180) + 10; // Random x-coordinate within the Mars circle
-                var randomY = Math.floor(Math.random() * 180) + 10; // Random y-coordinate within the Mars circle
+                var randomX = Math.floor(Math.random() * 260) + 20; // Random x-coordinate within the Mars circle
+                var randomY = Math.floor(Math.random() * 260) + 20; // Random y-coordinate within the Mars circle
                 alien.style.left = randomX + 'px';
                 alien.style.top = randomY + 'px';
                 mars.appendChild(alien);
